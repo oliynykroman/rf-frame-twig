@@ -35,6 +35,10 @@ const svgSprite = require("gulp-svg-sprites");
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
+// twig compilation
+const twig = require('gulp-twig');
+const data = require('gulp-data');
+
 // compile scss into css
 function scss() {
     return gulp.src(settings.src.style)
@@ -69,7 +73,11 @@ function html() {
         .pipe(injectSvg(injectSvgOptions))
         .pipe(gulp.dest(settings.build.html))
         .pipe(reload({ stream: true }));
+}
 
+// move and compile twig
+function twig(){
+    
 }
 
 //move js
