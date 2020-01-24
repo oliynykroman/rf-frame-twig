@@ -1,0 +1,72 @@
+//import mixins
+@import "../_scss-vars/vars";
+@import "../_scss-vars/animate";
+@import "../_scss-vars/box";
+@import "../_scss-vars/grid";
+//@import "../_scss-vars/typo";
+//@import "../_scss-vars/bars";
+//@import "../_scss-vars/flex";
+
+//if used sprites uncomment this
+//@import "../_scss-vars/sprite";
+
+@include exampleGrid();
+@include responsiveGrid(375px,
+  20px,
+  1fr repeat(12, minmax(8px, 10%)) 1fr,
+  "1fr (20px minmax(8px, 10%))[12] 20px 1fr",
+  1fr repeat(12, minmax(8px, 10%)) 1fr);
+@include responsiveGrid(1023px,
+  20px,
+  1fr repeat(12, minmax(0, 60px)) 1fr,
+  "1fr (20px minmax(0px, 60px))[12] 60px 1fr",
+  1fr repeat(12, minmax(0px, 60px)) 1fr);
+@include responsiveGrid();
+
+body {
+  margin : 0;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+  margin : 100px 0;
+}
+
+.header {
+  @include grid-column(7, 10, 13, 18);
+  @include grid-row(1, 2);
+  background-color: yellow;
+}
+
+.menu {
+  @include grid-column(10, 13, 19, 24);
+  @include grid-row(1, 7);
+  background: red;
+}
+
+.banner {
+  @include grid-column(3, 8, 5, 14);
+  @include grid-row(2, 3, 3, 4);
+  background-color: green;
+}
+
+.news {
+  @include grid-column(8, 10, 15, 18);
+  @include grid-row(2, 3, 3, 4);
+  // background-color: gray;
+  @include var(background-color, red);
+}
+
+.content {
+  @include grid-column(3, 10, 5, 18);
+  @include grid-row(4, 6, 5, 7);
+  background-color: violet;
+}
+
+.footer {
+  @include grid-column(1, 13, 1, 24);
+  @include grid-row(6, 7, 7, 8);
+  background-color: black;
+  color           : white;
+}
