@@ -4,5 +4,11 @@
             "name": "feature/twig",
             "base": "develop"
         }
+    ],
+    "gitflow4code.releases": [
+        {
+            "name": "release/first_version",
+            "base": "develop"
+        }
     ]
 }
