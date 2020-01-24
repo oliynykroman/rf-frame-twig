@@ -4,6 +4,7 @@ let settings = {
     //property contain object with settings where should be placed builded files
     build: {
         html: 'build/',
+        twig: 'build/',
         js: 'build/js/',
         css: 'build/css/',
         cleanCss: 'build/css/',
@@ -18,6 +19,8 @@ let settings = {
     //property contain object for start configuration
     src: {
         html: ['app/*.html'],
+        twig: ['app/*.twig'],
+        twigDataPath: './app/twig-data/twig-data.json',
         js: 'app/js/*.js',
         style: ['app/scss/*.scss'],
         cleanCss: ['app/css/*.css'],

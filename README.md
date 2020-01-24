@@ -4,12 +4,18 @@ Gulp 4 configuration file and scss mixins library + .twig compilation.
 
 Based on [rf-frame-scss](https://github.com/oliynykroman/rf-frame-scss): 
 
-
+Supports html, twig file generation.
 Supports grid generation for older versions IE(11, 10), updated mixins. 
 Added backstopJS for markup regressive testing
 
 ## How to
 All configs combined in settings.js
+
+
+## Twig compilation
+twig - path where should be placed main twig file (can be couple)
+twigDataPath -  path to json file, which contain all demo data for all layouts
+ 
 
 ## Grid grid:) mixins + settings
 1. Set to true 'legacyGrid' property
