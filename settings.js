@@ -20,6 +20,7 @@ let settings = {
     src: {
         html: ['app/*.html'],
         twig: ['app/*.twig'],
+        twigDataPath: './app/twig-data/twig-data.json',
         js: 'app/js/*.js',
         style: ['app/scss/*.scss'],
         cleanCss: ['app/css/*.css'],

@@ -76,8 +76,15 @@ function html() {
 }
 
 // move and compile twig
-function twig(){
-    
+function twigProcess() {
+    return gulp.src(settings.src.twig)
+        .pipe(data(function (file) {
+            return require(settings.src.twigDataPath);
+        }))
+        .pipe(twig())
+        .pipe(injectSvg(injectSvgOptions))
+        .pipe(gulp.dest(settings.build.twig))
+        .pipe(reload({ stream: true }));
 }
 
 //move js
@@ -193,6 +200,7 @@ function watch() {
     gulp.watch(settings.src.style, scss);
     gulp.watch(settings.src.cleanCss, cleanCss);
     gulp.watch(settings.src.html, html);
+    gulp.watch(settings.src.twig, twigProcess);
     gulp.watch(settings.src.js, jsMinify);
     gulp.watch(settings.src.json, jsonMinify);
     gulp.watch(settings.src.img, imageMinify);
@@ -217,4 +225,4 @@ function watch() {
         });
     }
 }
-gulp.task('default', gulp.series(scss, cleanCss, html, jsMinify, jsonMinify, imageMinify, imageRasterSprites, imageVectorSprites, assets, favicons, ico, fonts, watch));
+gulp.task('default', gulp.series(scss, cleanCss, html, twigProcess, jsMinify, jsonMinify, imageMinify, imageRasterSprites, imageVectorSprites, assets, favicons, ico, fonts, watch));
